@@ -2,13 +2,14 @@
 
 namespace Maui.GoogleMaps.Clustering
 {
-    public class ClusteredMap : Map
+    public class ClusteredMap : Map, IClusteredMap
     {
         public static readonly BindableProperty ClusterOptionsProperty = BindableProperty.Create(nameof(ClusterOptionsProperty),
        typeof(ClusterOptions),
        typeof(Map),
        default(ClusterOptions));
         public static readonly BindableProperty ClusterAlgorithmTypeProperty = BindableProperty.Create(nameof(Type), typeof(ClusterAlgorithm), typeof(ClusteredMap), ClusterAlgorithm.NonHierarchicalDistanceBased);
+        public static readonly BindableProperty GeoJsonProperty = BindableProperty.Create(nameof(GeoJson), typeof(string), typeof(Map), default(string));
 
         public event EventHandler<ClusterClickedEventArgs> ClusterClicked;
 
@@ -24,6 +25,11 @@ namespace Maui.GoogleMaps.Clustering
         {
             get { return (ClusterAlgorithm)GetValue(ClusterAlgorithmTypeProperty); }
             set { SetValue(ClusterAlgorithmTypeProperty, value); }
+        }
+        public string GeoJson
+        {
+            get { return (string)GetValue(GeoJsonProperty); }
+            set { SetValue(GeoJsonProperty, value); }
         }
         public ClusteredMap()
         {

@@ -1,5 +1,6 @@
 ﻿using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using Android.Gms.Maps.Utils.Data.GeoJson;
 using Android.Graphics;
 using Android.OS;
 
@@ -254,7 +255,6 @@ public partial class MapHandler
             new MapStyleOptions(map.MapStyle.JsonStyle) :
             null);
     }
-
     public static void MapSelectedPin(MapHandler handler, Map map)
     {
         if (handler.NativeMap != null)

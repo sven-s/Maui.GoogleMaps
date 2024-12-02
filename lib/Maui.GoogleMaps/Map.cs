@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
-
 using Maui.GoogleMaps.Extensions;
 using Maui.GoogleMaps.Helpers;
 using Maui.GoogleMaps.Internals;
@@ -90,7 +89,6 @@ public partial class Map : View, IMap, IEnumerable<Pin>
     MapSpan _visibleRegion;
     MapRegion _region;
     bool _useMoveToRegisonAsInitialBounds = true;
-
     public Map()
     {
         VerticalOptions = HorizontalOptions = LayoutOptions.Fill;
@@ -150,7 +148,7 @@ public partial class Map : View, IMap, IEnumerable<Pin>
         get { return (MapStyle)GetValue(MapStyleProperty); }
         set { SetValue(MapStyleProperty, value); }
     }
-
+   
     public IEnumerable ItemsSource
     {
         get => (IEnumerable)GetValue(ItemsSourceProperty);

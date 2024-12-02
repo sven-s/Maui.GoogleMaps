@@ -3,6 +3,7 @@
 
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
+using Android.Gms.Maps.Utils.Data.GeoJson;
 using Maui.GoogleMaps.Clustering.Platforms.Android;
 using Maui.GoogleMaps.Handlers;
 using Maui.GoogleMaps.Logics;
@@ -18,6 +19,14 @@ namespace Maui.GoogleMaps.Clustering
         /// </summary>
         /// <param name="outerItem">the pin.</param>
         /// <param name="innerItem">the marker options.</param>
+        public static void MapGeoJson(ClusterMapHandler handler, ClusteredMap map)
+        {
+            if (!string.IsNullOrEmpty(map.GeoJson))
+            {
+                var layer = new GeoJsonLayer(handler.NativeMap, new Org.Json.JSONObject(map.GeoJson));
+                layer.AddLayerToMap();
+            }
+        }
         protected virtual void OnClusteredMarkerCreating(Pin outerItem, MarkerOptions innerItem)
         {
 
@@ -56,15 +65,6 @@ namespace Maui.GoogleMaps.Clustering
             base.OnMapReady();
             var cluster = VirtualView as ClusteredMap;
         }
-
-    }
-    public partial class ClusterMapHandler : MapHandler
-    {
-
-        public ClusterMapHandler()
-        {
-
-        }
         public override void InitLogics() => Logics = new List<BaseLogic<GoogleMap>>
         {
             new PolylineLogic(),
@@ -74,5 +74,6 @@ namespace Maui.GoogleMaps.Clustering
             new TileLayerLogic(),
             new GroundOverlayLogic(Config.GetBitmapdescriptionFactory())
         };
-    }
+
+    }   
 }

@@ -8,6 +8,7 @@ using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Gms.Maps.Utils.Clustering;
 using Android.Gms.Maps.Utils.Clustering.Algorithm;
+using Android.Gms.Maps.Utils.Data.GeoJson;
 using Android.Widget;
 using Maui.GoogleMaps.Android;
 using Maui.GoogleMaps.Android.Extensions;
@@ -21,6 +22,7 @@ namespace Maui.GoogleMaps.Clustering.Platforms.Android
     {
         protected override IList<Pin> GetItems(Map map) => Map.Pins;
         public ClusteredMap ClusteredMapp => (ClusteredMap)Map;
+        private GoogleMap nativeMap;
         private volatile bool onMarkerEvent = false;
         private Pin draggingPin;
         private volatile bool withoutUpdateNative;
@@ -80,7 +82,7 @@ namespace Maui.GoogleMaps.Clustering.Platforms.Android
             {
                 return;
             }
-
+            nativeMap = newNativeMap;
             ClusteredMapp.OnCluster = HandleClusterRequest;
 
             NativeMap.CameraIdle += NativeMapOnCameraIdle;
@@ -288,7 +290,7 @@ namespace Maui.GoogleMaps.Clustering.Platforms.Android
                 nativeItem.Position = outerItem.Position.ToLatLng();
             }
         }
-
+   
         protected override void OnUpdateType(Pin outerItem, ClusteredMarker nativeItem)
         {
         }
