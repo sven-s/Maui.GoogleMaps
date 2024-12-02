@@ -75,7 +75,7 @@ namespace Maui.GoogleMaps.Clustering.Platforms.iOS.Clustering
             newNativeMap.DraggingMarker += DraggingMarker;
         }
 
-        private static IGMUClusterAlgorithm GetClusterAlgorithm(ClusteredMap clusteredNewMap) => clusteredNewMap.ClusterOptions.Algorithm switch
+        private static IGMUClusterAlgorithm GetClusterAlgorithm(ClusteredMap clusteredNewMap) => clusteredNewMap.ClusterAlgorithmType switch
         {
             ClusterAlgorithm.GridBased => new GMUGridBasedClusterAlgorithm(),
             ClusterAlgorithm.VisibleNonHierarchicalDistanceBased => throw new NotSupportedException("VisibleNonHierarchicalDistanceBased is only supported on Android"),

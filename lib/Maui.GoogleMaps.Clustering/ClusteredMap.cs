@@ -8,6 +8,7 @@ namespace Maui.GoogleMaps.Clustering
        typeof(ClusterOptions),
        typeof(Map),
        default(ClusterOptions));
+        public static readonly BindableProperty ClusterAlgorithmTypeProperty = BindableProperty.Create(nameof(Type), typeof(ClusterAlgorithm), typeof(ClusteredMap), ClusterAlgorithm.NonHierarchicalDistanceBased);
 
         public event EventHandler<ClusterClickedEventArgs> ClusterClicked;
 
@@ -18,6 +19,11 @@ namespace Maui.GoogleMaps.Clustering
         {
             get => (ClusterOptions)GetValue(ClusterOptionsProperty);
             set => SetValue(ClusterOptionsProperty, value);
+        }
+        public ClusterAlgorithm ClusterAlgorithmType
+        {
+            get { return (ClusterAlgorithm)GetValue(ClusterAlgorithmTypeProperty); }
+            set { SetValue(ClusterAlgorithmTypeProperty, value); }
         }
         public ClusteredMap()
         {

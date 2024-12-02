@@ -63,7 +63,7 @@ namespace Maui.GoogleMaps.Clustering.Platforms.Android
             clusterManager = new ClusterManager(context, NativeMap)
             {
 
-                Algorithm = ClusteredMapp.ClusterOptions.Algorithm switch
+                Algorithm = ClusteredMapp.ClusterAlgorithmType switch
                 {
                     ClusterAlgorithm.GridBased => new GridBasedAlgorithm(),
                     ClusterAlgorithm.VisibleNonHierarchicalDistanceBased => new NonHierarchicalViewBasedAlgorithm(
