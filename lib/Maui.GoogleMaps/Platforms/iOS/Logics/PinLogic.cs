@@ -94,7 +94,10 @@ public class PinLogic : DefaultPinLogic<Marker, MapView>
 
     protected override Marker DeleteNativeItem(Pin outerItem)
     {
-        var nativeMarker = outerItem.NativeObject as Marker;
+        if (outerItem.NativeObject is not Marker nativeMarker)
+        {
+            return null;
+        }
 
         _onMarkerDeleting(outerItem, nativeMarker);
 
