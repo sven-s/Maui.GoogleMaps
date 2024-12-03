@@ -1,4 +1,5 @@
-﻿using Google.Maps;
+﻿using CoreGraphics;
+using Google.Maps;
 using Maui.GoogleMaps.Internals;
 using Maui.GoogleMaps.iOS;
 using Maui.GoogleMaps.iOS.Extensions;
@@ -75,6 +76,17 @@ namespace Maui.GoogleMaps.Handlers
 
             _cameraLogic.Register(Map, NativeMap);
             Map.OnSnapshot += OnSnapshot;
+            Map.OnFromScreenLocation = point =>
+            {
+                var latLng = NativeMap.Projection.CoordinateForPoint(new CGPoint(point.X, point.Y));
+                return latLng.ToPosition();
+            };
+
+            Map.OnToScreenLocation = position =>
+            {
+                var pt = NativeMap.Projection.PointForCoordinate(position.ToCoord());
+                return new Microsoft.Maui.Graphics.Point(pt.X, pt.Y);
+            };
 
             //_cameraLogic.MoveCamera(mapModel.InitialCameraUpdate);
             //_ready = true;
