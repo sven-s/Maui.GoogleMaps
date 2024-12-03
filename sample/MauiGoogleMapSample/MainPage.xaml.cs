@@ -20,6 +20,7 @@ namespace MauiGoogleMapSample
             buttonBindingPin.Clicked += (_, e) => Navigation.PushAsync(new BindingPinViewPage());
             buttonGroundOverlays.Clicked += (_, e) => Navigation.PushAsync(new GroundOverlaysPage());
             buttonMapStyles.Clicked += (_, e) => Navigation.PushAsync(new MapStylePage());
+            buttonMapId.Clicked+= (_, e) => Navigation.PushAsync(new MapIdPage());
             buttonPinIconsCaching.Clicked += (_, e) => Navigation.PushAsync(new MultiplePinsIconsCaching());
 
         }

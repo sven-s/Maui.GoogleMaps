@@ -1,6 +1,5 @@
 ﻿using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
-using Android.Gms.Maps.Utils.Data.GeoJson;
 using Android.Graphics;
 using Android.OS;
 
@@ -63,7 +62,13 @@ public partial class MapHandler
 
     protected override MapView CreatePlatformView()
     {
-        var mapView = new MapView(Context);
+        var options = new GoogleMapOptions();
+        if (!string.IsNullOrEmpty(VirtualView.MapId))
+        {
+            options.InvokeMapId(VirtualView.MapId);
+        }
+
+        var mapView = new MapView(Context, options);
         mapView.OnCreate(s_bundle);
         mapView.OnResume();
 

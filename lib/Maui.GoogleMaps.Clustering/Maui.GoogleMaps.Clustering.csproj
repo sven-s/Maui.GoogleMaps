@@ -11,10 +11,10 @@
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <PackageId>Onion.Maui.GoogleMaps.Clustering</PackageId>
 	  <Title>Maui.GoogleMaps.Clustering</Title>
-	  <PackageVersion>6.0.1</PackageVersion>
+	  <PackageVersion>6.1.0</PackageVersion>
 	  <PackageReleaseNotes>
-# 6.0.1
-- Updated google maps ios sdk to 9.1.1
+# 6.1.0
+- GeoJson support
 	  </PackageReleaseNotes>
 	  <Authors>themronion</Authors>
 	  <Copyright>Copyright 2022-2024</Copyright>

@@ -5,7 +5,6 @@ using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Gms.Maps.Utils.Data.GeoJson;
 using Maui.GoogleMaps.Clustering.Platforms.Android;
-using Maui.GoogleMaps.Handlers;
 using Maui.GoogleMaps.Logics;
 using Maui.GoogleMaps.Logics.Android;
 

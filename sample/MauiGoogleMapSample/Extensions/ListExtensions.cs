@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-namespace MauiGoogleMapSample
+﻿namespace MauiGoogleMapSample
 {
     public static class ListExtensions
     {

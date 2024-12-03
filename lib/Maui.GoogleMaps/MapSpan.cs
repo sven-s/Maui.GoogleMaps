@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Maui.GoogleMaps.Internals;
+﻿using Maui.GoogleMaps.Internals;
 
 namespace Maui.GoogleMaps
 {

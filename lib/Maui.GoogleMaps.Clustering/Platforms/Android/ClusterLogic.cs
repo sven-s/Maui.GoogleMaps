@@ -8,7 +8,6 @@ using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Gms.Maps.Utils.Clustering;
 using Android.Gms.Maps.Utils.Clustering.Algorithm;
-using Android.Gms.Maps.Utils.Data.GeoJson;
 using Android.Widget;
 using Maui.GoogleMaps.Android;
 using Maui.GoogleMaps.Android.Extensions;

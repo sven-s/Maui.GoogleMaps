@@ -233,6 +233,8 @@ public partial class Map : View, IMap, IEnumerable<Pin>
     }
 
     public UiSettings UiSettings { get; } = new UiSettings();
+    
+    public string MapId { get; init; }
 
     IEnumerator IEnumerable.GetEnumerator()
     {

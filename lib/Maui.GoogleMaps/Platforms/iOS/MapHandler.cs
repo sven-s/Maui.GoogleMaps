@@ -1,5 +1,4 @@
 ﻿using Google.Maps;
-using Google.Maps.Utils;
 using Maui.GoogleMaps.Internals;
 using Maui.GoogleMaps.iOS;
 using Maui.GoogleMaps.iOS.Extensions;
@@ -30,7 +29,13 @@ namespace Maui.GoogleMaps.Handlers
 
         public IList<BaseLogic<MapView>> Logics { get; set; }
 
-        protected override MapView CreatePlatformView() => new(new MapViewOptions());
+        protected override MapView CreatePlatformView()
+        {
+            return new(new MapViewOptions
+            {
+                MapId = !string.IsNullOrEmpty(VirtualView.MapId) ? new MapId(VirtualView.MapId) : null
+            });
+        }
 
         public override void PlatformArrange(Rect rect)
         {

@@ -2,11 +2,7 @@
 using Microsoft.Maui.Platform;
 using Maui.GoogleMaps.iOS.Extensions;
 using NativePolyline = Google.Maps.Polyline;
-using Microsoft.Maui.ApplicationModel;
-using Microsoft.Maui.Controls.Shapes;
-using System.ComponentModel;
 using Foundation;
-using System.IO;
 using UIKit;
 
 namespace Maui.GoogleMaps.Logics.iOS;

@@ -10,10 +10,10 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageId>Onion.Maui.GoogleMaps</PackageId>
 		<Title>Maui.GoogleMaps</Title>
-		<PackageVersion>6.0.1</PackageVersion>
+		<PackageVersion>6.1.0</PackageVersion>
 		<PackageReleaseNotes>
-# 6.0.1
-- Updated google maps ios sdk to 9.1.1
+# 6.1.0
+- MapId support
 		</PackageReleaseNotes>
 		<Authors>themronion</Authors>
 		<Copyright>Copyright 2022-2024</Copyright>
@@ -41,9 +41,6 @@
 		<PackageReference Include="Xamarin.GooglePlayServices.Maps" Version="118.2.0.3" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' != 'net8.0'">
-		<PackageReference Include="Xamarin.Google.Maps.Utils" Version="1.3.9" />
-	</ItemGroup>
 	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-ios'">
 	  <PackageReference Include="AdamE.Google.iOS.Maps" Version="9.1.1.2" />
 	  <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" />
