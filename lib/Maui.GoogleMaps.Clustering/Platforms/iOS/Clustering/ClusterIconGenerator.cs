@@ -1,5 +1,7 @@
 ﻿// Original code from https://github.com/mierzynskim/Xamarin.Forms.GoogleMaps.Clustering/
 // Original author code from https://github.com/sferhah
+
+using System.Diagnostics.CodeAnalysis;
 using CoreGraphics;
 using Foundation;
 using Google.Maps.Utils;
@@ -59,37 +61,39 @@ namespace Maui.GoogleMaps.Clustering.Platforms.iOS.Clustering
             return index;
         }
 
+        [SuppressMessage("Interoperability", "CA1416:Validate platform compatibility")]
         private UIImage GetIconForText(string text, UIImage baseImage)
         {
-            var nsText = new NSString(text);
-            var icon = iconCache.ObjectForKey(nsText);
-            if (icon != null)
-            {
-                return (UIImage)icon;
-            }
+	        var nsText = new NSString(text);
+	        var icon = iconCache.ObjectForKey(nsText);
+	        if (icon != null)
+	        {
+		        return (UIImage)icon;
+	        }
 
-            var size = baseImage.Size;
+	        var size = baseImage.Size;
 
-            UIGraphics.BeginImageContextWithOptions(size, false, 0.0f);
-            baseImage.Draw(new CGRect(0, 0, size.Width, size.Height));
-            var rect = new CGRect(0, 0, baseImage.Size.Width, baseImage.Size.Height);
+		        UIGraphics.BeginImageContextWithOptions(size, false, 0.0f);
+		        baseImage.Draw(new CGRect(0, 0, size.Width, size.Height));
+		        var rect = new CGRect(0, 0, baseImage.Size.Width, baseImage.Size.Height);
 
-            var attributes = new UIStringAttributes(NSDictionary.FromObjectsAndKeys(
+		        var attributes = new UIStringAttributes(NSDictionary.FromObjectsAndKeys(
                 objects: [UIFont.BoldSystemFontOfSize(12), NSParagraphStyle.Default, options.RendererTextColor.ToPlatform()],
                 keys: [UIStringAttributeKey.Font, UIStringAttributeKey.ParagraphStyle, UIStringAttributeKey.ForegroundColor]
-            ));
+		        ));
 
-            var textSize = nsText.GetSizeUsingAttributes(attributes);
-            var textRect = CGRectExtensions.Inset(rect, (rect.Size.Width - textSize.Width) / 2, (rect.Size.Height - textSize.Height) / 2);
-            nsText.DrawString(CGRectExtensions.Integral(textRect), attributes);
+		        var textSize = nsText.GetSizeUsingAttributes(attributes);
+		        var textRect = CGRectExtensions.Inset(rect, (rect.Size.Width - textSize.Width) / 2, (rect.Size.Height - textSize.Height) / 2);
+		        nsText.DrawString(CGRectExtensions.Integral(textRect), attributes);
 
-            var newImage = UIGraphics.GetImageFromCurrentImageContext();
-            UIGraphics.EndImageContext();
+		        var newImage = UIGraphics.GetImageFromCurrentImageContext();
+		        UIGraphics.EndImageContext();
 
-            iconCache.SetObjectforKey(newImage, nsText);
-            return newImage;
-        }
+		        iconCache.SetObjectforKey(newImage, nsText);
+		        return newImage;
+	        }
 
+        [SuppressMessage("Interoperability", "CA1416:Validate platform compatibility")]
         private UIImage GetIconForText(string text, nuint bucketIndex)
         {
             var nsText = new NSString(text);

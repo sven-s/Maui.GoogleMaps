@@ -1,4 +1,5 @@
-﻿using UIKit;
+﻿using System.Diagnostics.CodeAnalysis;
+using UIKit;
 using Microsoft.Maui.Platform;
 
 namespace Maui.GoogleMaps;
@@ -24,6 +25,7 @@ public static class Utils
             nativeView.Layer.RenderInContext(ctx.CGContext);
         });
     }
+    [SuppressMessage("Interoperability", "CA1416:Validate platform compatibility")]
     public static UIImage ConvertViewToImage(UIView view)
     {
         UIGraphics.BeginImageContextWithOptions(view.Bounds.Size, false, 0);
