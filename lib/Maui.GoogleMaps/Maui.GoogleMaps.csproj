@@ -38,16 +38,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.21" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.22" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-ios'">
-	  <PackageReference Include="AdamE.Google.iOS.Maps" Version="9.2.0" />
+	  <PackageReference Include="AdamE.Google.iOS.Maps" Version="9.2.0.5" />
 	  <PackageReference Include="Xamarin.Build.Download" Version="0.11.4" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
-	  <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.21" />
+	  <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.22" />
 	  <PackageReference Include="Xamarin.GooglePlayServices.Maps" Version="119.0.0.3" />
 	</ItemGroup>
 
